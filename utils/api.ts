@@ -14,9 +14,9 @@ export const updateEntry = async (id, content) => {
   if (res.ok) {
     const data = await res.json()
     return data.data
-
-    // when error:
-    // return {error: true, code: 222..., message: '...'}
+  }
+  // when error:
+  // return {error: true, code: 222..., message: '...'}
 }
 
 export const createNewEntry = async () => {
