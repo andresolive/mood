@@ -4,11 +4,12 @@ import { prisma } from '@/utils/db'
 
 const getEntry = async (id) => {
   const user = await getUserByClerkId()
+
   const entry = await prisma.journalEntry.findUnique({
     where: {
       userId_id: {
         userId: user.id,
-        id,
+        id: id,
       },
     },
   })
@@ -19,7 +20,7 @@ const getEntry = async (id) => {
 const EntryPage = async ({ params }) => {
   const entry = await getEntry(params.id)
   return (
-    <div>
+    <div className="h-full w-full">
       <Editor entry={entry} />
     </div>
   )
