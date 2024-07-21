@@ -4,19 +4,24 @@ import { useState } from 'react'
 
 const Question = () => {
   const [value, setValue] = useState('')
+
   const onChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
     e.preventDefault()
   }
 
   return (
     <div>
-      <form>
+      <form onSubmit={onChange}>
         <input
           onChange={onChange}
           value={value}
           type="text"
           placeholder=""
-          className="rounded-lg border border-black/20 px-4 py-6 text-lg"
+          className="rounded-lg border border-black/20 px-4 py-2 text-lg"
         />
         <button
           type="submit"
@@ -28,3 +33,5 @@ const Question = () => {
     </div>
   )
 }
+
+export default Question
